@@ -1,0 +1,14 @@
+# ehaportal-js:
+#   filter: rjsmin
+#   output: ckanext-ehaportal/%(version)s-ehaportal.js
+#   contents:
+#     - js/ehaportal.js
+#   extra:
+#     preload:
+#       - base/main
+
+# ehaportal-css:
+#   filter: cssrewrite
+#   output: ckanext-ehaportal/%(version)s-ehaportal.css
+#   contents:
+#     - css/ehaportal.css
