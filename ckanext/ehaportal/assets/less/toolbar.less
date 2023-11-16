@@ -1,0 +1,24 @@
+.toolbar {
+  .breadcrumb {
+    padding: @grid-gutter-width;
+    font-size: @base-font-size + 2;
+    li {
+      text-shadow: none;
+      margin-right: @unit/2;
+      color: @base-text-color;
+
+      font-weight: 300;
+      &:after {
+        margin-left: @unit/3;
+      }
+    }
+
+    li+li:before {
+      padding:0;
+    }
+
+    a {
+      color: @color-action;
+    }
+  }
+}

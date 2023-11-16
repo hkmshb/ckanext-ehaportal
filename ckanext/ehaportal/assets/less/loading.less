@@ -1,0 +1,106 @@
+.loading(@dot-size, @radius, @duration) {
+
+  padding: 0 @radius @radius 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9000;
+  background-color: @color-neutral-pale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.hide {
+    display: none;
+  }
+
+  @keyframes dot {
+    0%   {opacity: 0; top:@radius/2; background: @color-action-dark;}
+    10%  {opacity: 1;}
+    30%  {opacity: 1; top:0;background: @color-primary; }
+    100% {opacity: 0; top:0;background: @color-primary; }
+  }
+  .dot1, .dot2, .dot3, .dot4, .dot5, .dot6 {
+    width: @radius;
+    height: @radius;
+    position: absolute;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 100%;
+      background: @color-primary;
+      width: @dot-size;
+      height: @dot-size;
+      left: @dot-size;
+      top: @dot-size;
+      opacity: 0;
+      animation: dot @duration infinite;
+    }
+
+  }
+  .dot2 {
+    transform: rotate(60deg);
+    &:before {
+      animation-delay: @duration/6;
+    }
+  }
+  .dot3 {
+    transform: rotate(120deg);
+    &:before {
+      animation-delay: @duration/6*2;
+    }
+  }
+  .dot4 {
+    transform: rotate(180deg);
+    &:before {
+      animation-delay: @duration/6*3;
+    }
+  }
+  .dot5 {
+    transform: rotate(240deg);
+    &:before {
+      animation-delay: @duration/6*4;
+    }
+  }
+  .dot6 {
+    transform: rotate(300deg);
+    &:before {
+      animation-delay: @duration/6*5;
+    }
+  }
+}
+
+
+
+.loading-overlay {
+  .loading(@dot-size:10px, @radius:50px, @duration:1.4s);
+}
+
+.map-container {
+  .loading-overlay {
+    .loading(@dot-size:14px, @radius:80px, @duration:1.4s);
+     background-color: fade(@color-primary, 30%);
+  }
+}
+
+.loading-container {
+  .loading-overlay {
+    .loading(@dot-size:8px, @radius:36px, @duration:1.4s);
+     background: none;
+     position: relative;
+     padding: 50px 36px;
+  }
+}
+
+.loading-icon {
+  .loading-overlay {
+    .loading(@dot-size:6px, @radius:24px, @duration:1s);
+     background: none;
+     position: relative;
+     left: -6px;
+  }
+}

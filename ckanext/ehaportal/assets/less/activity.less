@@ -1,0 +1,37 @@
+.activity {
+  background: none;
+
+  .item {
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: @color-neutral-base;
+      position: absolute;
+      left: 13px;
+      top: -6px;  
+    }
+
+    &::after {
+      top: -12px; 
+    }
+
+    &:first-child {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+  
+  p {
+    padding: .3rem 0;
+  }
+
+  .item .icon {
+    font-weight: 900;
+  }
+}

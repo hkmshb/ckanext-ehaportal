@@ -1,0 +1,177 @@
+.filter, .dropdown {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.filter-label {
+  .heading-m;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown {
+  align-items: baseline;
+
+  .dropdown-label {
+    font-size: @base-font-size;
+    font-weight: 300;
+  }
+
+  .grid3-select {
+    min-width: 140px;
+
+    .select__single-value {
+      padding: 4px 0;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      transform: none;
+      color: @color-action-dark;
+      max-width: 100%;
+    }
+
+    .select__indicator {
+      padding: 0px 4px 8px;
+    }
+  }
+}
+
+
+
+.filter .grid3-select {
+  position: static;
+  width: 100%;
+}
+
+.grid3-select {
+
+  .select__control {
+    border: 0;
+    box-shadow: none;
+    min-width: 30px;
+    min-height: 28px;
+    width: 100%;
+    position: static;
+    display: flex;
+    align-items: baseline;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+      border: 0;
+      box-shadow: none;
+    }
+  }
+
+  .select__value-container {
+    padding: 0 24px 0 8px;
+  }
+
+  .select__indicator-separator {
+    display: none;
+  }
+
+  .select__indicators {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .select__control--is-focused .select__indicators {
+    left: auto;
+    width: 24px;
+  }
+
+  .select__indicator {
+    padding: 4px;
+  }
+
+  .select__indicator svg {
+    fill: @color-action;
+  }
+
+  input, input:focus {
+    box-shadow: none;
+    margin: 0;
+    height: auto;
+  }
+
+  .select__multi-value {
+    background: fade(@color-action, 50%);
+    border-radius: 1em;
+    padding: 0 2px;
+  }
+
+  .select__multi-value__label {
+    font-size: @base-font-size;
+    color: @base-text-color;
+  }
+
+  .select__placeholder {
+    .select__multi-value;
+    .select__multi-value__label;
+    background: fade(@color-action, 30%);
+    display: block;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .select__control--is-focused {
+    .select__placeholder {
+      display: none;
+    }
+  }
+
+  .select__multi-value__remove {
+
+    svg {
+      fill: @color-primary;
+    }
+  }
+  .select__multi-value__remove:hover {
+    background: none;
+    svg {
+      fill: @color-primary-dark;
+    }
+  }
+
+  .select__menu {
+    right: 0;
+    border-radius: @base-border-radius;
+    box-shadow: 0 1px 2px fade(@color-neutral-dark, 30%), 0 1px 4px fade(@color-neutral-dark, 30%);
+    min-width: 10rem;
+  }
+
+  .select__menu-list {
+    padding: @unit 0;
+  }
+
+  .select__option {
+    font-size: @base-font-size;
+    color: @base-text-color;
+    padding: .3em @unit*1.5;
+  }
+
+  .select__option:focus,
+  .select__option:active,
+  .select__option--is-focused {
+    background-color: transparent;
+    color: @color-action-dark;
+  }
+
+  .select__option--is-selected {
+    background-color: fade(@color-action, 30%);
+    color: @base-text-color;
+  }
+}

@@ -7,8 +7,8 @@
 #     preload:
 #       - base/main
 
-# ehaportal-css:
-#   filter: cssrewrite
-#   output: ckanext-ehaportal/%(version)s-ehaportal.css
-#   contents:
-#     - css/ehaportal.css
+styles:
+  filter: cssrewrite
+  output: ckanext-ehaportal/%(version)s-ehaportal.css
+  contents:
+    - css/ehaportal.css
