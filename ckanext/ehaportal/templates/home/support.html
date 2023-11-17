@@ -1,0 +1,415 @@
+{% extends "page.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="image-header">
+      <div class="bg-image help-desk">
+        <img src="/image/support-bg.jpg" alt="support"></img>
+      </div>
+      <h1 class="text-center support-headline">
+        Help Desk<i class="fa fa-comment-alt"></i>
+      </h1>
+      <h2 class="support-number">
+        <i class="fa fa-phone"></i> {{ support.number }}
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="module support-center">
+          <div class="module-heading">
+            <h2 class="headline-xxl text-center">Support Cases</h2>
+          </div>
+          <div class="module-content flex">
+            <div class="support-info">
+              <p class="heading-l">
+                The 24/7 365 Help Desk and Support Center makes it easy for you to find the right 
+                information you need. If you need help accessing any of the datasets on the portal 
+                or experience any technical issues accessing the portal kindly contact the help 
+                desk via the
+                <b>
+                  toll-free number
+                  <a class="call-link" href="{{ support.number_url }}">
+                    {{ support.number }}
+                  </a>
+                </b>
+                or via email by filling the
+                <a href="{{ support.email_url }}">
+                  Request Support
+                </a>
+                form.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="module faq">
+          <div class="module-heading">
+            <h2 class="headline-xxl text-center">FAQ</h2>
+          </div>
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    What is the portal about?
+                  </button>
+                </h3>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    The portal is a repository for data collected across countries we have operated 
+                    in in Africa. This is developed to serve the data access, routine analysis and 
+                    informed decision-making needs of government, private sector, donor, partners, 
+                    and individuals.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    What data can I find here?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    The Data Portal contains a wide range of data sets and outputs generated from 
+                    the same datasets generated through State, national, NGO, donor, and private 
+                    sector sources.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    In what format is the data available?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    Datasets are available in the following formats: JSON, CSV, Geopackage, Spatialite,
+                    GML and SHP.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                    How do I find data?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseFour"
+                class="collapse"
+                aria-labelledby="headingFour"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    Use the “Search” box at the top of the homepage- Enter keywords to search for 
+                    specific datasets. You can also search by location.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingFive">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseFive"
+                    aria-expanded="false"
+                    aria-controls="collapseFive"
+                  >
+                    How do I download data that is not publically available?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseFive"
+                class="collapse"
+                aria-labelledby="headingFive"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    If you find private data that you are interested in exploring or downloading, 
+                    select the “Request Access” tab, provide requested details and submit. The 
+                    portal administrator will review your request and make a decision to approve,
+                    decline or request additional information from you. A reply to your request 
+                    will be sent to the email you have provided.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingSix">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseSix"
+                    aria-expanded="false"
+                    aria-controls="collapseSix"
+                  >
+                    Will the Data Portal be updated, and how often?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseSix"
+                class="collapse"
+                aria-labelledby="headingSix"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    The information on the Data Portal is regularly updated as new data becomes 
+                    available. but we cannot provide specific dates on when updates will occur.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingSeven">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseSeven"
+                    aria-expanded="false"
+                    aria-controls="collapseSeven"
+                  >
+                    What can I use this data for?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseSeven"
+                class="collapse"
+                aria-labelledby="headingSeven"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    Secondary use of the datasets by independent parties such as academic researchers 
+                    etc. for non-commercial use is permitted and does not require a formal request. 
+                    Data uploaded to the portal from external partners however, may be held privately
+                    and may require a formal request for access.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingEight">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseEight"
+                    aria-expanded="false"
+                    aria-controls="collapseEight"
+                  >
+                    What privacy policy do we have in place for the portal users?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseEight"
+                class="collapse"
+                aria-labelledby="headingEight"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    The portal values its users and is committed to safeguarding their privacy. Our 
+                    privacy policy is designed to protect individuals with regard to the collection, 
+                    storage and use of any data provided while using the portal. You can read the
+                    <a href="https://www.ehealthafrica.org/privacy-policy">
+                      privacy policy
+                    </a>
+                    here.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingNine">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseNine"
+                    aria-expanded="false"
+                    aria-controls="collapseNine"
+                  >
+                    What privileges come with granting data access to a user?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseNine"
+                class="collapse"
+                aria-labelledby="headingNine"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    Approval to use the portal data only grants the user a limited, royalty-free, 
+                    revocable, non-exclusive, non-transferable, non-sublicensable access. Users are 
+                    not permitted to directly or indirectly, sublicense or distribute the data for 
+                    which they have access to any third parties.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingTen">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTen"
+                    aria-expanded="false"
+                    aria-controls="collapseTen"
+                  >
+                    How do I sign up on data.ehealthafrica.org?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseTen"
+                class="collapse"
+                aria-labelledby="headingTen"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    Please click on the Register link at the top-right corner of this page and follow 
+                    the instructions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingEleven">
+                <h3 class="mb-0 title-xl">
+                  <button
+                    class="btn-link btn-block text-left title-xl collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseEleven"
+                    aria-expanded="false"
+                    aria-controls="collapseEleven"
+                  >
+                    How does data.ehealthafrica.org maintain accessibility?
+                  </button>
+                </h3>
+              </div>
+              <div
+                id="collapseEleven"
+                class="collapse"
+                aria-labelledby="headingEleven"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <p class="text-m">
+                    The commitment to accessibility for all is reflected on this site in our efforts 
+                    to ensure all functionality and all content are accessible to all data.ehealthafrica.org 
+                    users. The site is routinely tested for accessibility using technical standards 
+                    checklist, in-depth testing with screen readers, policy experts, and people with 
+                    disabilities.
+                  </p>
+                  <p class="text-m">
+                    The data.ehealthafrica.org website is being updated frequently to make it as 
+                    accessible as possible. If you use assistive technology (such as a screen reader, 
+                    eye tracking device, voice recognition software, etc.) and have difficulty accessing 
+                    information on data.ehealthafrica.org, please contact us and provide the URL (web 
+                    address) of the data you tried to access, the problem you experienced, and your 
+                    contact information. A data.ehealthafrica.org team member will contact you and 
+                    attempt to provide the information you’re seeking.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
