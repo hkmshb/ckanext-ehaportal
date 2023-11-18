@@ -1,3 +1,8 @@
+## ckanext-ehaportal
+.venv/
+
+
+## Python 
 .ropeproject
 node_modules
 bower_components

@@ -7,6 +7,12 @@
 #     preload:
 #       - base/main
 
+custom-js:
+  filter: rjsmin
+  output: ckanext-ehaportal/%(version)s-custom.js
+  contents:
+    - js/custom.js
+
 styles:
   filter: cssrewrite
   output: ckanext-ehaportal/%(version)s-ehaportal.css

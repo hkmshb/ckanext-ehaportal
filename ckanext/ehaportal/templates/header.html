@@ -1,15 +1,48 @@
 {% ckan_extends %}
+{% set is_home = (is_home or False) %}
 
-{% block header_wrapper %} {% block header_account %}
-<div class="account-masthead">
-  <div class="container-fluid">
-    {% block header_account_container_content %} {% if c.userobj %}
-      {{ super() }}
-    {% else %}
-      {{ super() }}
-    {% endif %} {% endblock %}
+{% block header_wrapper %}{% block header_account %}
+{% if is_home %}
+<div id="home-masthead" class="home-nav">
+  <div class="bg-image">
+    <img src="/image/home-bg.jpg" alt="Home page background" />
   </div>
-</div>
+{% endif %}
+
+  <header class="account-masthead">
+    <div class="container-fluid">
+      {% block header_account_container_content %}
+        {{ super() }}
+      {% endblock %}
+    </div>
+  </header>
+
+{% if is_home %}
+  <header class="header-banner">
+    <h1 class="banner-title">
+      Democratizing access to geospatial data for public health planning
+    </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 home-buttons">
+          <a href="/datasets" class="explore-button ex-btn">
+            Explore Datasets
+          </a>
+        </div>
+        <div class="col-lg-4 home-buttons">
+          <a class="dataset-button ds-btn" href="">
+            Generate Maps
+          </a>
+        </div>
+         <div class="col-lg-4 home-buttons">
+          <a class="analytics-button ex-btn" href="">
+            Analytics
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endif %}
 {% endblock %}
 
 <header class="navbar navbar-static-top masthead">
@@ -20,7 +53,8 @@
     <hgroup class="{{ g.header_class }} navbar-left">
       {% block header_logo %} {% if g.site_logo %}
       <a class="logo" href="{{ h.url_for('home.index') }}">
-        <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" />
+        <img src="{{ h.url_for_static_or_external(g.site_logo) }}" 
+             alt="{{ g.site_title }}" title="{{ g.site_title }}" />
       </a>
       {% else %}
       <h1>
@@ -30,40 +64,40 @@
       <h2>{{ g.site_description }}</h2>{% endif %} {% endif %} {% endblock %}
     </hgroup>
 
+    {% if is_home %}
+    <div class="header-search">
+      <form onSubmit={this.props.onSearch}>
+        <input
+          type="text"
+          placeholder="Search all datasets…"
+        />
+        <i class="fa fa-search"></i>
+      </form>
+    </div>
+    {% endif %}
+
     <div class="navbar-right">
-      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button" aria-label="expand or collapse" aria-expanded="false">
+      <button 
+         data-target="#main-navigation-toggle"
+         data-toggle="collapse"
+         class="navbar-toggle collapsed"
+         type="button"
+         aria-label="expand or collapse"
+         aria-expanded="false"
+      >
         <span class="sr-only">{{ _('Toggle navigation') }}</span>
         <span class="fa fa-bars"></span>
       </button>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navigation-toggle">
-      {% block header_site_navigation %}
-      <nav class="section navigation">
-        <ul class="nav nav-pills">
-          {% block header_site_navigation_tabs %}
-		        {{ h.build_nav_main(
-               ('home.index', _('Home')),
-		           ('dataset.search', _('Datasets')),
-		           ('organization.index', _('Organizations')),
-		           ('group.index', _('Groups')),
-               ('eha_home.impacts', _('Our Impacts')),
-		           ('home.about', _('About')),
-               ('eha_home.support', _('Support')),
-            ) }}
-	        {% endblock %}
-        </ul>
-      </nav>
-      {% endblock %} {# block header_site_search %}
-      <form class="section site-search simple-input" action="{% url_for 'dataset.search' %}" method="get">
-        <div class="field">
-          <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
-          <input id="field-sitewide-search" type="text" class="form-control" name="q" placeholder="{{ _('Search') }}" aria-label="{{ _('Search datasets') }}"/>
-          <button class="btn-search" type="submit" aria-label="{{ _('Submit') }}"><i class="fa fa-search"></i></button>
-        </div>
-      </form>
-      {% endblock #}
+      {% snippet 'snippets/header_site_nav.html', is_home=is_home %}
     </div>
   </div>
 </header>
+
+{% if is_home %}
+  <div id="header-scroll-down" class="scroll-down"></div>
+</div>
+{% endif %}
 {% endblock %}

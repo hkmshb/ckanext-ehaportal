@@ -1,0 +1,47 @@
+<div class="impact-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 impact-title mx-auto text-center">
+        <h2>Our Impact</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 p-5">
+        <div class="impact-cards">
+          <div class="icon-bg">
+            <img src="/image/users.svg" alt="" />
+          </div>
+          <p class="numbers"> {{ stat.total_website_visits }}</p>
+          <p> Number of visitors</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="impact-cards">
+          <div class="icon-bg">
+            <img src="/image/map.svg" alt="" />
+          </div>
+          <p class="numbers"> {{ stat.total_generated_maps }}</p>
+          <p> Number of Generated Maps</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="impact-cards">
+          <div class="icon-bg">
+            <img src="/image/database.svg" alt="" />
+          </div>
+          <p class="numbers"> {{ stat.total_downloaded_datasets }}</p>
+          <p> Downloaded Datasets</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mx-auto text-center">
+        <button class="btn btn-primary impact-button btn-large">
+          <a class="btn-color" href="/impacts">
+            <img src="/image/metro-arrow-right.svg" alt="" /> Click to view more details
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
