@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="module col-md-10 col-md-offset-1">
+    <h2 class="widget-headline text-center">
+      <span class="badge badge-number">{{ dataset_count }}</span> available
+      datasets in Nigeria and <b>{{ sector_count }}</b>
+      sectors
+    </h2>
+    <div class="module-content map-sector-widget">
+      <div class="home-map">
+        <!-- <Loader show={this.state.mapPending} customStyle={loaderStyle} /> -->
+        <div ref={this.targetMap}></div>
+      </div>
+      <div class="home-sectors">
+        <!--
+        <Loader show={this.props.mapSectorPending} customStyle={loaderStyle}
+        />
+        {datasetCount === 0 ? (
+          <div>
+            {this.props.mapSectorPending ? null : (
+              <span>
+                No datasets found in{' '}
+                {convertToTitleCase(this.state.selectedLocation || 'all locations')}
+              </span>
+            )}
+          </div>
+        ) : (
+          sectors.map((sector) => {
+            const count = (facets && facets[sector.name]) || 0;
+            return (
+              count !== 0 && (
+                <SectorListItem
+                  sector={sector}
+                  key={sector.id}
+                  facet={count}
+                  onClick={this.onSectorClick.bind(
+                    this, this.state.selectedLocation, sector.name
+                  )}
+                />
+              )
+            );
+          })
+        )} -->
+      </div>
+    </div>
+    <div class="divider">
+      <div class="btn btn-primary btn-large">
+        show <span>{{ dataset_count }}</span> datasets
+      </div>
+    </div>
+  </div>
+</div>

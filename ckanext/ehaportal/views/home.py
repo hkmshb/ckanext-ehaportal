@@ -6,7 +6,21 @@ from flask import Blueprint
 eha_home = Blueprint('eha_home', __name__)
 
 
-def impacts():
+def index():
+    '''display home page'''
+    extra_vars = {
+        'sector_count': 12,
+        'dataset_count': 500,
+        'stat': {
+            'total_website_visits': 1000,
+            'total_generated_maps': 300,
+            'total_downloaded_datasets': 20000,
+        }
+    }
+    return base.render(u'home/index.html', extra_vars=extra_vars)
+
+
+def impact():
     '''display impact page'''
     return base.render('home/impact.html', extra_vars={})
 
@@ -24,7 +38,8 @@ def support():
 
 
 util_rules = [
-    ('/impacts', impacts),
+    ('/', index),
+    ('/impact', impact),
     ('/support', support)
 ]
 
