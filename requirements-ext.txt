@@ -1,0 +1,24 @@
+## CKAN extensions
+## ===============
+
+git+https://github.com/eHealthAfrica/ckanext-odata.git
+git+https://github.com/keitaroinc/ckanext-s3filestore.git@v1.0.0
+-r https://raw.githubusercontent.com/keitaroinc/ckanext-s3filestore/v1.0.0/requirements.txt
+
+git+https://github.com/ckan/ckanext-googleanalytics.git@v2.3.0
+-r https://raw.githubusercontent.com/ckan/ckanext-googleanalytics/v2.3.0/requirements.txt
+
+git+https://github.com/ckan/ckanext-geoview.git@v0.0.19
+-r https://raw.githubusercontent.com/ckan/ckanext-geoview/v0.0.19/pip-requirements.txt
+
+# FIXME: disabling ckanext-spatial & ckanext-harvest due to proj (a requirement for the former) 
+#        failing to install successfully
+# git+https://github.com/eHealthAfrica/ckanext-spatial.git@e59a295431247fcd605fe55bb4fd9a2ecfc28d2b
+# -r https://raw.githubusercontent.com/eHealthAfrica/ckanext-spatial/e59a295431247fcd605fe55bb4fd9a2ecfc28d2b/requirements.txt
+
+# git+https://github.com/ckan/ckanext-harvest@v1.5.6
+# -r https://raw.githubusercontent.com/ckan/ckanext-harvest/v1.5.6/requirements.txt
+    
+git+https://github.com/okfn/ckanext-sentry.git@d3b1d1cf1f975b3672891012e6c75e176497db8f
+-r https://raw.githubusercontent.com/okfn/ckanext-sentry/d3b1d1cf1f975b3672891012e6c75e176497db8f/requirements.txt
+
