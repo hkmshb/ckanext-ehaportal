@@ -1,0 +1,81 @@
+version: '3'
+
+dotenv: ['.env']
+vars:
+  COMPOSE_FILE: ./.var/docker/docker-compose.yml
+  DOCKER_SERVICES: db redis solr smtp datapusher
+  CKAN_PLUGINS_SKIPPED: googleanalytics sentry
+  CKAN_PLUGINS: |
+    envvars s3filestore ehaportal image_view text_view recline_view \
+    webpage_view datastore datapusher resource_proxy spatial_metadata \
+    spatial_query harvest ckan_harvester
+
+tasks:
+  init-dev:
+    cmds:
+      - yarn install
+      - yarn build
+
+  run:
+    cmds:
+      - ckan -c ./.var/ckan.ini run
+
+  # config files
+  env-file:
+    cmds:
+      # make copy of ./var/docker/env.sample
+      - |
+        if [[ ! -f .env ]]; then
+          cp ./.var/docker/env.sample .env
+        fi
+      - |
+        sed -i .bak '
+          s/CKAN_PORT=5000/CKAN_PORT=5500/g;
+          s/datapusher:8000/localhost:8000/g;
+          s/redis:6379/localhost:6379/g;
+          s/solr:8983/localhost:8983/g;
+          s/ckan:5000/ckan:${CKAN_PORT}/g;
+          s/@db/@localhost/g;
+          s/STORAGE__PATH/STORAGE_PATH/g;
+          s|=/srv/app/data|={{.USER_WORKING_DIR}}/.var/ckan/data|g;
+        ' .env
+
+  ini-file:
+    cmds:
+      - |
+        if [[ ! -f ./.var/ckan.ini ]]; then
+          ckan generate config ./.var/ckan.ini
+        fi 
+      - |
+        ckan config-tool ./.var/ckan.ini \
+          "ckan.devserver.port = ${CKAN_PORT}" \
+          "sqlalchemy.url = postgresql://ckan:${POSTGRES_PASSWORD}@localhost/ckan" \
+          "ckan.site_url = http://localhost:${CKAN_PORT}" \
+          "solr_url = http://localhost:8983/solr/ckan" \
+          "ckan.storage_path = %(here)s/.var/ckan/data" \
+          "ckan.webassets.path = %(here)s/.var/ckan/data/webassets" \
+          "ckan.resource_formats = %(here)s/../.venv/src/ckan/ckan/config/resource_formats.json" \
+          "ckan.plugins = {{.CKAN_PLUGINS}}"
+
+  # docker services
+  init-services:
+    cmds:
+      - |
+        if [[ ! -d ./.var/docker ]]; then
+          git clone git@github.com:eHealthAfrica/docker-ehaportal.git ./.var/docker
+        fi
+      - sed -i .bak 's| \.env| ../../\.env|g' {{.COMPOSE_FILE}}
+      - task: env-file
+
+  build-services:
+    cmds:
+      - docker compose -f {{.COMPOSE_FILE}} build {{.DOCKER_SERVICES}}
+
+  run-services:
+    cmds:
+      - docker compose -f {{.COMPOSE_FILE}} up {{.DOCKER_SERVICES}}
+
+  kill-services:
+    cmds:
+      - docker compose -f {{.COMPOSE_FILE}} down
+

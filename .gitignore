@@ -1,6 +1,10 @@
 ## ckanext-ehaportal
+.var/
 .venv/
+[_.]tmp/
 
+.env
+.env*
 
 ## Python 
 .ropeproject
