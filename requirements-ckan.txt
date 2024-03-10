@@ -1,6 +1,7 @@
 ## CKAN extensions
 ## ===============
 
+git+https://github.com/okfn/ckanext-envvars.git@v0.0.3
 git+https://github.com/eHealthAfrica/ckanext-odata.git
 git+https://github.com/keitaroinc/ckanext-s3filestore.git@v1.0.0
 -r https://raw.githubusercontent.com/keitaroinc/ckanext-s3filestore/v1.0.0/requirements.txt

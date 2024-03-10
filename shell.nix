@@ -41,8 +41,9 @@ pkgs.mkShell {
     pip install -r .venv/src/ckan/requirements.txt
 
     # Install CKAN extensions
-    pip install -r ./requirements-ext.txt
+    pip install -r ./requirements-ckan.txt
     pip install -r ./requirements-dev.txt
+    pip install -r ./requirements.txt
 
     # Install `ckanext-ehaportal` in editable mode
     pip install -e .

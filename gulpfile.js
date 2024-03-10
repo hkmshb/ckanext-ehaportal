@@ -33,20 +33,20 @@ const watchSource = () =>
     build
   );
 
-// const jquery = () =>
-//   src(__dirname + "/node_modules/jquery/dist/jquery.js").pipe(
-//     dest(assets_dir + "/vendor")
-//   );
-//
-// const bootstrap = () =>
-//   src(__dirname + "/node_modules/bootstrap/dist/**/*").pipe(
-//     dest(assets_dir + "/ckan/public/base/vendor/bootstrap")
-//   );
-//
-// const bootstrapLess = () =>
-//   src(__dirname + "/node_modules/bootstrap/less/**/*").pipe(
-//     dest(assets_dir + "/ckan/public/base/vendor/bootstrap/less")
-//   );
+const jquery = () =>
+  src(__dirname + "/node_modules/jquery/dist/jquery.js").pipe(
+    dest(assets_dir + "/vendor")
+  );
+
+const bootstrap = () =>
+  src(__dirname + "/node_modules/bootstrap/dist/**/*").pipe(
+    dest(assets_dir + "/ckan/public/base/vendor/bootstrap")
+  );
+
+const bootstrapLess = () =>
+  src(__dirname + "/node_modules/bootstrap/less/**/*").pipe(
+    dest(assets_dir + "/ckan/public/base/vendor/bootstrap/less")
+  );
 
 const moment = () =>
   src(__dirname + "/node_modules/moment/min/moment-with-locales.js").pipe(
@@ -68,10 +68,10 @@ const fontAwesomeLess = () =>
     dest(assets_dir + "/vendor/font-awesome/less")
   );
 
-// const jQueryFileUpload = () =>
-//   src(__dirname + "/node_modules/blueimp-file-upload/js/*.js").pipe(
-//     dest(assets_dir + "/ckan/public/base/vendor/jquery-fileupload/")
-//   );
+const jQueryFileUpload = () =>
+  src(__dirname + "/node_modules/blueimp-file-upload/js/*.js").pipe(
+    dest(assets_dir + "/ckan/public/base/vendor/jquery-fileupload/")
+  );
 
 const qs = () =>
   src(__dirname + "/node_modules/qs/dist/qs.js").pipe(
@@ -81,14 +81,7 @@ const qs = () =>
 exports.build = build;
 exports.watch = watchSource;
 exports.updateVendorLibs = parallel(
-  // jquery,
-  // bootstrap,
-  // bootstrapLess,
   moment,
-  fontAwesomeCss,
-  fontAwesomeFonts,
-  fontAwesomeLess,
-  // jQueryFileUpload,
   qs
 );
 
