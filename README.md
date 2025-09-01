@@ -52,6 +52,7 @@ None at present.
 
 1. Install all pre-requisites listed above you if don't already have them installed
 
+
 1. Install CKAN and all dependent extension from source into a `Nix` shell from the project root directory as follows:
    
    ```sh 
